@@ -14,9 +14,14 @@ const Login = () => {
     });
   
   };
+  const { login } = useContext(AuthContext);
   const onSubmit = (e) =>{
     e.preventDefault();
+    if (loginData.email && loginData.password) {
+      login(loginData.email, loginData.password);
+    }
   }
+  
   return (
     <div>
     <form onSubmit={{onSubmit}}>
